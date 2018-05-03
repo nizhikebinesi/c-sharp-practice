@@ -42,25 +42,30 @@
             this.makeComputationsInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.filenameBox = new System.Windows.Forms.TextBox();
+            this.anotherProjectsLink = new System.Windows.Forms.LinkLabel();
             this.assetsNumTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.assetsGrid = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.capitalTextBox = new System.Windows.Forms.TextBox();
             this.periodTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.answerBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.addRowButton = new System.Windows.Forms.Button();
+            this.removeRow = new System.Windows.Forms.Button();
+            this.answerGridView = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsGrid)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.answerGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -146,12 +151,15 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.removeRow);
+            this.tabPage1.Controls.Add(this.addRowButton);
+            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.label6);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Controls.Add(this.linkLabel1);
+            this.tabPage1.Controls.Add(this.filenameBox);
+            this.tabPage1.Controls.Add(this.anotherProjectsLink);
             this.tabPage1.Controls.Add(this.assetsNumTextBox);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.dataGridView1);
+            this.tabPage1.Controls.Add(this.assetsGrid);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.capitalTextBox);
             this.tabPage1.Controls.Add(this.periodTextBox);
@@ -163,29 +171,42 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // linkLabel1
+            // label6
             // 
-            resources.ApplyResources(this.linkLabel1, "linkLabel1");
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // filenameBox
+            // 
+            resources.ApplyResources(this.filenameBox, "filenameBox");
+            this.filenameBox.Name = "filenameBox";
+            this.filenameBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
+            // anotherProjectsLink
+            // 
+            resources.ApplyResources(this.anotherProjectsLink, "anotherProjectsLink");
+            this.anotherProjectsLink.Name = "anotherProjectsLink";
+            this.anotherProjectsLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // assetsNumTextBox
             // 
             resources.ApplyResources(this.assetsNumTextBox, "assetsNumTextBox");
             this.assetsNumTextBox.Name = "assetsNumTextBox";
+            this.assetsNumTextBox.TextChanged += new System.EventHandler(this.assetsNumTextBox_TextChanged);
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
             // 
-            // dataGridView1
+            // assetsGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.assetsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.assetsGrid, "assetsGrid");
+            this.assetsGrid.Name = "assetsGrid";
+            this.assetsGrid.RowTemplate.Height = 24;
+            this.assetsGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // label3
             // 
@@ -217,32 +238,53 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.answerGridView);
+            this.tabPage2.Controls.Add(this.answerBox);
             this.tabPage2.Controls.Add(this.label5);
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // answerBox
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.answerBox, "answerBox");
+            this.answerBox.Name = "answerBox";
+            this.answerBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged_2);
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // textBox2
+            // button2
             // 
-            resources.ApplyResources(this.textBox2, "textBox2");
-            this.textBox2.Name = "textBox2";
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // label6
+            // addRowButton
             // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.Name = "label6";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            resources.ApplyResources(this.addRowButton, "addRowButton");
+            this.addRowButton.Name = "addRowButton";
+            this.addRowButton.UseVisualStyleBackColor = true;
+            this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
+            // 
+            // removeRow
+            // 
+            resources.ApplyResources(this.removeRow, "removeRow");
+            this.removeRow.Name = "removeRow";
+            this.removeRow.UseVisualStyleBackColor = true;
+            this.removeRow.Click += new System.EventHandler(this.removeRow_Click);
+            // 
+            // answerGridView
+            // 
+            this.answerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.answerGridView, "answerGridView");
+            this.answerGridView.Name = "answerGridView";
+            this.answerGridView.ReadOnly = true;
+            this.answerGridView.RowTemplate.Height = 24;
             // 
             // Form1
             // 
@@ -259,9 +301,10 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.assetsGrid)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.answerGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,17 +329,21 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox capitalTextBox;
         private System.Windows.Forms.TextBox periodTextBox;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView assetsGrid;
         private System.Windows.Forms.TextBox assetsNumTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem saveParametersToFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveSolutionToFileToolStripMenuItem;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel anotherProjectsLink;
         private System.Windows.Forms.LinkLabel.Link link1 = new System.Windows.Forms.LinkLabel.Link(0, int.MaxValue, "https://github.com/nizhikebinesi");
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox answerBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox filenameBox;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button addRowButton;
+        private System.Windows.Forms.Button removeRow;
+        private System.Windows.Forms.DataGridView answerGridView;
     }
 }
 

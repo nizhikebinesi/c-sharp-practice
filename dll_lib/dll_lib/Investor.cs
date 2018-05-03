@@ -99,9 +99,9 @@ namespace InvestmentLib
 
         public Asset(decimal profit, decimal prob)
         {
-            if (prob > 1 || prob < 0)
+            if (prob > 1m || prob < 0m)
             {
-                throw new InvalidProbabilityException();
+                throw new InvalidProbabilityException("Prob = " + prob.ToString());
             }
             this.profit = profit;
             this.prob = prob;
@@ -262,6 +262,20 @@ namespace InvestmentLib
             return new InvestmentPlan(realProfitInvestments);
         }
 
+    }
+
+    public static class EasySolve
+    {
+        public static InvestmentPlan solve(Tranche tranche)
+        {
+            Investor investor = new Investor(tranche.period, tranche.capital, tranche.assets);
+
+            InvestmentsSolver solver = new InvestmentsSolver(investor);
+
+            InvestmentPlan plan = solver.TheoreticalProfitPlan();
+
+            return plan;
+        }
     }
 }
 

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Globalization;
+
 using System.IO;
 
 namespace InvestmentLib
 {
-
-
     public struct Tranche
     {
         public decimal capital;
@@ -26,6 +26,8 @@ namespace InvestmentLib
 
     public class ReadWriteTools
     {
+
+        public static CultureInfo ci = new CultureInfo("en-US");
 
         public static Tranche MakeSimpleTranche()
         {
@@ -79,23 +81,61 @@ namespace InvestmentLib
             return tranche;
         }
 
-        // todo!!!
         public static Tranche ReadConditionFromTextFile(string fileName)
         {
             Tranche tranche;
-            try
+            using (var sr = new StreamReader(fileName))
             {
-                using (var sr = new StreamReader(fileName))
+                string line = sr.ReadLine();
+                decimal C = Decimal.Parse(line, ci);
+                line = sr.ReadLine();
+
+                int period = int.Parse(line, ci);
+                if (period < 1)
                 {
-                    string line = sr.ReadToEnd();
-
+                    throw new ArgumentException();
                 }
-            }
-            catch (Exception e)
-            {
 
+                line = sr.ReadLine();
+                int n = int.Parse(line, ci);
+                if (n < 1)
+                {
+                    throw new ArgumentException();
+                }
+
+                List<Asset> assets = new List<Asset>();
+                for (int i = 0; i < n; i++)
+                {
+                    line = sr.ReadLine();
+                    decimal profit = Decimal.Parse(line, ci);
+                    line = sr.ReadLine();
+                    decimal prob = Decimal.Parse(line, ci);
+
+                    assets.Add(
+                        new Asset(profit, prob)
+                        );
+                }
+
+                tranche = new Tranche(C, period, assets);
             }
             return tranche;
+        }
+
+        public static void WriteConditionToTextFile(string fileName, Tranche tranche)
+        {
+            using (var sw = new StreamWriter(fileName))
+            {
+                sw.WriteLine(tranche.capital.ToString(ci));
+                sw.WriteLine(tranche.period.ToString(ci));
+                sw.WriteLine(tranche.assets.Count.ToString(ci));
+                for (int i = 0; i < tranche.assets.Count; i++)
+                {
+                    var tmp = tranche.assets[i];
+                    
+                    sw.WriteLine(tmp.profit.ToString(ci));
+                    sw.WriteLine(tmp.prob.ToString(ci));
+                }
+            }
         }
     }
 }
