@@ -142,7 +142,7 @@ namespace desktop_app
             assetsGrid.Visible = true;
                  */
                 this.answerGridView.Rows.Clear();
-                foreach (var x in plan.plan)
+                foreach (var x in plan.Plan)
                 {
                     this.answerGridView.Rows.Add(x.Item1.ToString(ci), x.Item2.ToString());
                 }
@@ -293,6 +293,60 @@ namespace desktop_app
                     assetsGrid.Visible = false;
                 }
                 setRowNumber(this.assetsGrid);
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string filename = filenameBox.Text;
+            if (filename != "")
+            {
+                InvestmentPlan plan = DesktopLogic.planFromProcess(filename);
+
+                //var plan = tranche.assets[0].profit.ToString() + " " + tranche.assets[0].prob.ToString();
+
+                this.answerBox.Text = plan.GetFinalProfit().ToString(ci);
+
+                this.answerGridView.Rows.Clear();
+                foreach (var x in plan.Plan)
+                {
+                    this.answerGridView.Rows.Add(x.Item1.ToString(ci), x.Item2.ToString());
+                }
+                setRowNumber(this.answerGridView);
+                this.answerGridView.Visible = true;
+
+                this.answerBox.TabStop = false;
+                this.tabControl1.SelectedTab = this.tabPage2;
+                this.tabPage2.Visible = true;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Tranche tranche = readTranche();
+
+                InvestmentPlan plan = DesktopLogic.planFromThread(tranche);
+
+                //var plan = tranche.assets[0].profit.ToString() + " " + tranche.assets[0].prob.ToString();
+
+                this.answerBox.Text = plan.GetFinalProfit().ToString(ci);
+
+                this.answerGridView.Rows.Clear();
+                foreach (var x in plan.Plan)
+                {
+                    this.answerGridView.Rows.Add(x.Item1.ToString(ci), x.Item2.ToString());
+                }
+                setRowNumber(this.answerGridView);
+                this.answerGridView.Visible = true;
+
+                this.answerBox.TabStop = false;
+                this.tabControl1.SelectedTab = this.tabPage2;
+                this.tabPage2.Visible = true;
+            }
+            catch (Exception ex)
+            {
             }
         }
     }

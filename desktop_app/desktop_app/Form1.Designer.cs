@@ -42,6 +42,10 @@
             this.makeComputationsInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
+            this.removeRow = new System.Windows.Forms.Button();
+            this.addRowButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.filenameBox = new System.Windows.Forms.TextBox();
             this.anotherProjectsLink = new System.Windows.Forms.LinkLabel();
@@ -54,12 +58,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.answerGridView = new System.Windows.Forms.DataGridView();
             this.answerBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.addRowButton = new System.Windows.Forms.Button();
-            this.removeRow = new System.Windows.Forms.Button();
-            this.answerGridView = new System.Windows.Forms.DataGridView();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -151,6 +153,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.button4);
             this.tabPage1.Controls.Add(this.removeRow);
             this.tabPage1.Controls.Add(this.addRowButton);
             this.tabPage1.Controls.Add(this.button2);
@@ -170,6 +174,34 @@
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // button4
+            // 
+            resources.ApplyResources(this.button4, "button4");
+            this.button4.Name = "button4";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // removeRow
+            // 
+            resources.ApplyResources(this.removeRow, "removeRow");
+            this.removeRow.Name = "removeRow";
+            this.removeRow.UseVisualStyleBackColor = true;
+            this.removeRow.Click += new System.EventHandler(this.removeRow_Click);
+            // 
+            // addRowButton
+            // 
+            resources.ApplyResources(this.addRowButton, "addRowButton");
+            this.addRowButton.Name = "addRowButton";
+            this.addRowButton.UseVisualStyleBackColor = true;
+            this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label6
             // 
@@ -245,6 +277,14 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // answerGridView
+            // 
+            this.answerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.answerGridView, "answerGridView");
+            this.answerGridView.Name = "answerGridView";
+            this.answerGridView.ReadOnly = true;
+            this.answerGridView.RowTemplate.Height = 24;
+            // 
             // answerBox
             // 
             resources.ApplyResources(this.answerBox, "answerBox");
@@ -257,34 +297,12 @@
             this.label5.Name = "label5";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // button2
+            // button3
             // 
-            resources.ApplyResources(this.button2, "button2");
-            this.button2.Name = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // addRowButton
-            // 
-            resources.ApplyResources(this.addRowButton, "addRowButton");
-            this.addRowButton.Name = "addRowButton";
-            this.addRowButton.UseVisualStyleBackColor = true;
-            this.addRowButton.Click += new System.EventHandler(this.addRowButton_Click);
-            // 
-            // removeRow
-            // 
-            resources.ApplyResources(this.removeRow, "removeRow");
-            this.removeRow.Name = "removeRow";
-            this.removeRow.UseVisualStyleBackColor = true;
-            this.removeRow.Click += new System.EventHandler(this.removeRow_Click);
-            // 
-            // answerGridView
-            // 
-            this.answerGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.answerGridView, "answerGridView");
-            this.answerGridView.Name = "answerGridView";
-            this.answerGridView.ReadOnly = true;
-            this.answerGridView.RowTemplate.Height = 24;
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -344,6 +362,8 @@
         private System.Windows.Forms.Button addRowButton;
         private System.Windows.Forms.Button removeRow;
         private System.Windows.Forms.DataGridView answerGridView;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }
 

@@ -110,7 +110,7 @@ namespace InvestmentLib
 
     public class InvestmentPlan
     {
-        public IList<Tuple<decimal, decimal>> plan;
+        private IList<Tuple<decimal, decimal>> plan;
 
         public InvestmentPlan(IList<Tuple<decimal, decimal>> plan)
         {
@@ -237,7 +237,7 @@ namespace InvestmentLib
                 _r += asset.prob * asset.profit;
             }
 
-            System.Console.WriteLine("_r = {0}", _r);
+            //System.Console.WriteLine("_r = {0}", _r);
 
             for (int i = 1; i < periodLength + 1; i++)
             {

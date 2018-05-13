@@ -12,12 +12,12 @@ namespace console_app
 {
 
 
-    public struct Tranche
+    public struct Tranche1
     {
         public decimal capital;
         public int period;
         public List<Asset> assets;
-        public Tranche(decimal capital, int period, List<Asset> assets)
+        public Tranche1(decimal capital, int period, List<Asset> assets)
         {
             this.capital = capital;
             this.period = period;
@@ -26,7 +26,7 @@ namespace console_app
     }
 
 
-    public class ReadWriteTools
+    public class ReadWriteTools1
     {
 
         public static Tranche MakeSimpleTranche()
